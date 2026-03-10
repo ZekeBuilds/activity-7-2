@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Ezekiel John R. Libao</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <div class="glow-line"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Zeke<span class="accent">Builds</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="works.html">Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="education.html">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="references.html">References</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrap">
+    <div class="container">
+
+      <!-- Greeting bar -->
+      <div class="greeting-bar fade-up d1">
+        <span id="greeting-text" class="greeting-text"></span>
+        <span class="clock-divider">|</span>
+        <span class="live-clock" id="live-clock">00:00:00 AM</span>
+      </div>
+
+      <div class="row gy-5">
+
+        <!-- Hero -->
+        <div class="col-12 fade-up d2">
+          <p class="section-label">Portfolio</p>
+          <h1 class="hero-name">
+            Welcome to<br>
+            <span class="line2">My Portfolio.</span>
+          </h1>
+          <p class="hero-role">
+            Ezekiel John R. Libao
+            <span class="sep">/</span>
+            Computer Engineering Student
+            <span class="sep">/</span>
+            De La Salle University
+          </p>
+          <p class="hero-bio">
+            Passionate about both hardware and software — from PCB design and embedded systems
+            to building web applications and solving algorithmic problems. Currently pursuing
+            B.S. Computer Engineering, graduating 2027.
+          </p>
+          <a href="cv.html" class="btn-primary-custom">
+            <i class="bi bi-file-person"></i> View My CV
+          </a>
+        </div>
+
+        <!-- Socials -->
+        <div class="col-12 fade-up d3">
+          <p class="section-label">Connect</p>
+          <h2 class="h5 font-mono mb-3">Connect With Me</h2>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#" target="_blank" rel="noopener" class="social-link">
+              <span class="social-icon-badge">FB</span> Facebook
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="social-link">
+              <span class="social-icon-badge">IG</span> Instagram
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="social-link">
+              <span class="social-icon-badge">TW</span> Twitter
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="social-link">
+              <span class="social-icon-badge">TT</span> TikTok
+            </a>
+            <a href="https://github.com/ZekeBuilds" target="_blank" rel="noopener" class="social-link">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-12 col-lg-8 fade-up d4">
+          <p class="section-label">Contact</p>
+          <h2 class="h5 font-mono mb-3">Get In Touch</h2>
+
+          <div class="contact-section">
+
+            <!-- Validation summary -->
+            <div id="validationSummary" class="validation-summary mb-3" style="display:none;" role="alert">
+              <div class="vs-title">Please fix the following before sending:</div>
+              <ul id="validationList"></ul>
+            </div>
+
+            <form id="contactForm"
+                  action="https://formsubmit.co/ezekiel_libao@dlsu.edu.ph"
+                  method="POST"
+                  novalidate>
+
+              <!-- FormSubmit hidden fields -->
+              <input type="hidden" name="_subject"  value="New Message from Portfolio">
+              <input type="hidden" name="_captcha"  value="false">
+              <input type="hidden" name="_template" value="table">
+              <!-- Honeypot -->
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+              <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control"
+                           placeholder="Enter your full name" autocomplete="name" required>
+                    <div class="invalid-feedback"></div>
+                    <div class="valid-feedback">Looks good!</div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control"
+                           placeholder="your.email@example.com" autocomplete="email" required>
+                    <div class="invalid-feedback"></div>
+                    <div class="valid-feedback">Valid email!</div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control"
+                           placeholder="What is this about?" required>
+                    <div class="invalid-feedback"></div>
+                    <div class="valid-feedback">Great subject!</div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-control"
+                              placeholder="Write your message here..." required></textarea>
+                    <div class="invalid-feedback"></div>
+                    <div class="valid-feedback">Looks great!</div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn-submit" id="submitBtn">
+                    <span id="btnText">Send Message</span>
+                    <span id="btnSpinner" style="display:none;" class="d-inline-flex align-items-center gap-2">
+                      <svg class="spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                           stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                           aria-hidden="true">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83
+                                 M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                      </svg>
+                      Sending…
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Success state -->
+            <div id="successMessage" class="success-message mt-3" style="display:none;" role="status">
+              <div class="success-icon" aria-hidden="true">&#10003;</div>
+              <div>
+                <p class="success-title">Message Sent Successfully!</p>
+                <p class="success-text">Thanks for reaching out — I'll get back to you soon.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2025 Ezekiel John R. Libao &middot; <span class="text-blue">ZekeBuilds</span>
+    </div>
+  </footer>
+
+  <div id="toast-container" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

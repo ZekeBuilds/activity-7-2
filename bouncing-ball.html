@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouncing Ball — Ezekiel John R. Libao</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <div class="glow-line"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Zeke<span class="accent">Builds</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="works.html">Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="education.html">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="references.html">References</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-wrap compact">
+    <div class="container-fluid px-3 px-md-4">
+
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+        <div>
+          <p class="section-label mb-0">Demo</p>
+          <h1 class="h4 font-mono mb-0">Bouncing Ball <span class="accent">Animation</span></h1>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="canvas-badge">
+            <i class="bi bi-circle-fill icon-dot" aria-hidden="true"></i> LIVE
+          </span>
+          <a href="works.html" class="btn-primary-custom btn-sm-custom">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Works
+          </a>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="ballCanvas" aria-label="Bouncing red ball animation"></canvas>
+        <div class="canvas-overlay">
+          <div id="ballInfo">pos: (0, 0)</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2025 Ezekiel John R. Libao &middot; <span class="text-blue">ZekeBuilds</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const canvas = document.getElementById('ballCanvas');
+    const ctx    = canvas.getContext('2d');
+    const info   = document.getElementById('ballInfo');
+
+    const RADIUS = 18;
+    const SPEED  = 4;
+
+    let x, y, dx, dy;
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      if (x === undefined) {
+        x  = canvas.width  / 2;
+        y  = canvas.height / 2;
+        dx = SPEED;
+        dy = -SPEED;
+      } else {
+        x = Math.max(RADIUS, Math.min(canvas.width  - RADIUS, x));
+        y = Math.max(RADIUS, Math.min(canvas.height - RADIUS, y));
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Glow trail
+      const grad = ctx.createRadialGradient(x, y, 2, x, y, RADIUS * 2.5);
+      grad.addColorStop(0, 'rgba(231,76,60,0.18)');
+      grad.addColorStop(1, 'rgba(231,76,60,0)');
+      ctx.beginPath();
+      ctx.arc(x, y, RADIUS * 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Ball
+      const ballGrad = ctx.createRadialGradient(x - RADIUS * 0.3, y - RADIUS * 0.3, 2, x, y, RADIUS);
+      ballGrad.addColorStop(0, '#ff6b6b');
+      ballGrad.addColorStop(1, '#c0392b');
+      ctx.beginPath();
+      ctx.arc(x, y, RADIUS, 0, Math.PI * 2);
+      ctx.fillStyle    = ballGrad;
+      ctx.shadowColor  = 'rgba(231,76,60,0.6)';
+      ctx.shadowBlur   = 18;
+      ctx.fill();
+      ctx.shadowBlur   = 0;
+
+      // Physics
+      x += dx;
+      y += dy;
+
+      if (x + RADIUS >= canvas.width  || x - RADIUS <= 0) { dx = -dx; x = Math.max(RADIUS, Math.min(canvas.width  - RADIUS, x)); }
+      if (y + RADIUS >= canvas.height || y - RADIUS <= 0) { dy = -dy; y = Math.max(RADIUS, Math.min(canvas.height - RADIUS, y)); }
+
+      if (info) info.textContent = `pos: (${Math.round(x)}, ${Math.round(y)}) · vel: (${dx > 0 ? '+' : ''}${dx}, ${dy > 0 ? '+' : ''}${dy})`;
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    draw();
+  </script>
+</body>
+</html>

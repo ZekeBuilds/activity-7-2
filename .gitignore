@@ -1,0 +1,21 @@
+# Claude
+.claude/
+CLAUDE.md
+memory/
+
+# Scratch / temp folders
+_temp/
+_local/
+_scratch/
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local reference / assignment docs (not part of the project source)
+CLAUDE-md-for-bootstrap-project.txt
+Lab_Bootstrap5_Portfolio_via_CDN.docx
