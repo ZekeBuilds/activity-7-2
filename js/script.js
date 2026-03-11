@@ -234,6 +234,11 @@ if (form) {
           form.style.display = 'block';
           [nameInput, emailInput, subjectInput, msgInput].forEach(el => {
             el.classList.remove('is-valid', 'is-invalid');
+            const wrapper = el.closest('.mb-3') || el.parentElement;
+            const validEl = wrapper.querySelector('.valid-feedback');
+            const errEl   = wrapper.querySelector('.invalid-feedback');
+            if (validEl) validEl.style.display = '';
+            if (errEl)   errEl.textContent = '';
           });
           if (successMsg) successMsg.style.display = 'none';
           btnText.style.display    = 'inline';
