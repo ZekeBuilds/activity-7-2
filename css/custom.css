@@ -220,6 +220,44 @@ h1, h2, h3, h4, h5, h6 {
 .live-clock { color: var(--blue); letter-spacing: 0.1em; }
 
 /* ===== HERO ===== */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-photo-wrap {
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.hero-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--blue);
+  box-shadow: 0 0 30px var(--blue-glow);
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .hero-inner {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .hero-photo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
 .hero-name {
   font-family: var(--font-mono);
   font-size: clamp(2rem, 5.5vw, 3.8rem);
